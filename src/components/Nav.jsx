@@ -23,7 +23,7 @@ import { FiEdit } from "react-icons/fi";
             className="flex flex-col gap-2 p-2 rounded-lg bg-white shadow-xl absolute top-[120%] left-[50%] w-48 overflow-hidden"
           >
             <Option setOpen={setOpen} Icon={FiEdit} text="About"/>
-            <Option setOpen={setOpen} Icon={BsCalendar2Event} text="Events" _url="https://tally.so/r/w5x7pd"/>
+            <Option setOpen={setOpen} Icon={BsCalendar2Event} text="JIS Samman 2024" _url="https://tally.so/r/w5x7pd"/>
             <Option setOpen={setOpen} Icon={IoCodeSlashOutline} text="Hackathons"/>
           </motion.ul>
         </motion.div>
