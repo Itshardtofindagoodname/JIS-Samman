@@ -1,13 +1,9 @@
-import {
-    FiEdit,
-    FiChevronDown,
-    FiTrash,
-    FiShare,
-    FiPlusSquare,
-  } from "react-icons/fi";
+import { FiEdit } from "react-icons/fi";
+  import { BsCalendar2Event } from "react-icons/bs";
+  import { IoCodeSlashOutline } from "react-icons/io5";
   import { motion } from "framer-motion";
   import { useState } from "react";
-  
+
   const Nav = () => {
     const [open, setOpen] = useState(false);
   
@@ -15,12 +11,9 @@ import {
         <motion.div animate={open ? "open" : "closed"} className="relative">
           <button
             onClick={() => setOpen((pv) => !pv)}
-            className="flex items-center gap-2 px-3 py-2 rounded-md text-indigo-50 bg-indigo-500 hover:bg-indigo-500 transition-colors"
+            className="flex items-center gap-2 px-3 py-2 rounded-md text-indigo-400"
           >
-            <span className="font-medium text-sm">Post actions</span>
-            <motion.span variants={iconVariants}>
-              <FiChevronDown />
-            </motion.span>
+            <span className="font-medium hover:font-bold transition-shadow duration-100 delay-300 md:text-lg text-sm">What's more?</span>
           </button>
   
           <motion.ul
@@ -29,26 +22,30 @@ import {
             style={{ originY: "top", translateX: "-50%" }}
             className="flex flex-col gap-2 p-2 rounded-lg bg-white shadow-xl absolute top-[120%] left-[50%] w-48 overflow-hidden"
           >
-            <Option setOpen={setOpen} Icon={FiEdit} text="About" />
-            <Option setOpen={setOpen} Icon={FiPlusSquare} text="Events" />
-            <Option setOpen={setOpen} Icon={FiPlusSquare} text="Hackathons" />
+            <Option setOpen={setOpen} Icon={FiEdit} text="About"/>
+            <Option setOpen={setOpen} Icon={BsCalendar2Event} text="Events" _url="https://tally.so/r/w5x7pd"/>
+            <Option setOpen={setOpen} Icon={IoCodeSlashOutline} text="Hackathons"/>
           </motion.ul>
         </motion.div>
     );
   };
   
-  const Option = ({ text, Icon, setOpen }) => {
+  const Option = ({ text, Icon, setOpen, _url }) => {
     return (
-      <motion.li
-        variants={itemVariants}
-        onClick={() => setOpen(false)}
-        className="flex items-center gap-2 w-full p-2 text-xs font-medium whitespace-nowrap rounded-md hover:bg-indigo-100 text-slate-700 hover:text-indigo-500 transition-colors cursor-pointer"
-      >
-        <motion.span variants={actionIconVariants}>
-          <Icon />
-        </motion.span>
-        <span>{text}</span>
-      </motion.li>
+      <div>
+        <a href={_url} target="_blank" rel="noopener noreferrer">
+        <motion.li
+          variants={itemVariants}
+          onClick={() => setOpen(false)}
+          className="flex items-center gap-2 w-full p-2 text-xs font-medium whitespace-nowrap rounded-md hover:bg-indigo-100 text-slate-700 hover:text-indigo-500 transition-colors cursor-pointer"
+        >
+          <motion.span variants={actionIconVariants}>
+            <Icon />
+          </motion.span>
+          <span>{text}</span>
+        </motion.li>
+        </a>
+      </div>
     );
   };
   
