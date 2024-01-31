@@ -3,7 +3,7 @@ import React from 'react'
 function App() {
   return (
     <>
-    <span className='underline'>ARNAB IS A WOMAN.</span>
+    <span className='underline'>DEVSOC x JIS SAMMAN</span>
     </>
   )
 }
